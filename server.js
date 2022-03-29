@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
+import 'express-async-errors';
 
 // db and authenticateUser
 import connectDB from "./db/connect.js";
@@ -18,12 +19,12 @@ import notFoundMiddleware from "./middleware/not-found.js";
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    throw new Error('error')
+    // throw new Error('error')
     res.send('Welcome')
 })
 
-app.use('api/v1/auth', authRoutes)
-app.use('api/v1/travels', travelRoutes)
+app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/travels', travelRoutes)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
