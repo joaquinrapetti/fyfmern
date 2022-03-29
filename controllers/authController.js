@@ -17,11 +17,11 @@ const register = async (req, res) => {
     res.status(StatusCodes.OK).json({ user })
 };
 
-const login = (req, res) => {
+const login = async (req, res) => {
   res.send("login user");
 };
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
   res.send("updateUser user");
 };
 
